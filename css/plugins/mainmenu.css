@@ -1,4 +1,3 @@
-
 /*! #######################################################################
 
 	MeanMenu 2.0.7
@@ -9,10 +8,10 @@
 ####################################################################### */
 
 
-.mean-container{
+.mean-container {
 	position: unset;
 	width: 100%;
-	background: #transparent;
+	background: transparent;
 }
 
 /* hide the link until viewport size is reached */
@@ -22,29 +21,33 @@ a.meanmenu-reveal {
 
 /* when under viewport size, .mean-container is added to body */
 .mean-container .mean-bar {
-  display: inline-block;
-  padding: 0;
-  position: absolute;
-  right: 10px;
-  top: 12px;
-  width: 100%;
-  z-index: 8;
+	display: inline-block;
+	padding: 0;
+	position: absolute;
+	right: 10px;
+	top: 12px;
+	width: 100%;
+	z-index: 8;
 }
+
 .is-sticky .mean-container .mean-bar {
-  top: -4px;
+	top: -4px;
 }
+
 .is-sticky .mean-container a.meanmenu-reveal span {
-  background: #fff none repeat scroll 0 0;
+	background: #fff none repeat scroll 0 0;
 }
+
 .is-sticky .mean-container a.meanmenu-reveal {
-  color: #fff;
+	color: #fff;
 }
+
 .mean-container a.meanmenu-reveal {
 	color: #494949;
 	cursor: pointer;
 	display: flex;
 	flex-flow: column wrap;
-	font-family: Arial,Helvetica,sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-weight: 700;
 	height: 66px;
 	justify-content: center;
@@ -56,12 +59,14 @@ a.meanmenu-reveal {
 	top: 0;
 	width: 30px;
 }
+
 .oth-page .mean-container a.meanmenu-reveal {
-  color: #ddd;
+	color: #ddd;
 }
+
 .mean-container a.meanmenu-reveal.meanclose {
-    top: 23px;
-    font-size: 25px !important;
+	top: 23px;
+	font-size: 25px !important;
 }
 
 .mean-container a.meanmenu-reveal span {
@@ -69,24 +74,26 @@ a.meanmenu-reveal {
 	background: #494949 none repeat scroll 0 0;
 	height: 2px;
 	margin-top: 5px;
-	width:  100%;
+	width: 100%;
 }
+
 .oth-page .mean-container a.meanmenu-reveal span {
 	background: #ddd none repeat scroll 0 0;
 }
-.mean-container a.meanmenu-reveal span:first-child{
+
+.mean-container a.meanmenu-reveal span:first-child {
 	margin-top: 0;
 }
 
 .mean-container .mean-nav {
-  background: #f1f1f1 none repeat scroll 0 0;
-  float: left;
-  margin-bottom: 0;
-  margin-left: 0;
-  margin-top: 66px;
-  max-height: 255px;
-  overflow-y: auto;
-  width: 100%;
+	background: #f1f1f1 none repeat scroll 0 0;
+	float: left;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-top: 66px;
+	max-height: 255px;
+	overflow-y: auto;
+	width: 100%;
 }
 
 .mean-container .mean-nav ul {
@@ -111,7 +118,7 @@ a.meanmenu-reveal {
 	text-align: left;
 	color: #333;
 	border-top: 1px solid #383838;
-	border-top: 1px solid rgba(0,0,0,0.04);
+	border-top: 1px solid rgba(0, 0, 0, 0.04);
 	text-decoration: none;
 	text-transform: uppercase;
 	font-size: 14px;
@@ -121,7 +128,7 @@ a.meanmenu-reveal {
 	width: 80%;
 	padding: 12px 10%;
 	border-top: 1px solid #f1f1f1;
-	border-top: 1px solid rgba(0,0,0,0.1);
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
 	opacity: 0.75;
 	filter: alpha(opacity=75);
 	text-shadow: none !important;
@@ -150,7 +157,7 @@ a.meanmenu-reveal {
 
 .mean-container .mean-nav ul li a:hover {
 	background: #252525;
-	background: rgba(255,255,255,0.1);
+	background: rgba(255, 255, 255, 0.1);
 }
 
 .mean-container .mean-nav ul li a.mean-expand {
@@ -164,10 +171,10 @@ a.meanmenu-reveal {
 	top: 0;
 	z-index: 2;
 	font-weight: 700;
-	background: rgba(255,255,255,0.1);
+	background: rgba(255, 255, 255, 0.1);
 	border: none !important;
-	border-left: 1px solid rgba(0,0,0,0.1) !important;
-	border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+	border-left: 1px solid rgba(0, 0, 0, 0.1) !important;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 	line-height: 35px;
 }
 
@@ -190,7 +197,8 @@ a.meanmenu-reveal {
 }
 
 /* Fix for box sizing on Foundation Framework etc. */
-.mean-container .mean-bar, .mean-container .mean-bar * {
+.mean-container .mean-bar,
+.mean-container .mean-bar * {
 	-webkit-box-sizing: content-box;
 	-moz-box-sizing: content-box;
 	box-sizing: content-box;
@@ -203,29 +211,29 @@ a.meanmenu-reveal {
 
 
 .mean-container a.meanmenu-reveal.meanclose {
-    top: 0;
-    font-size: 25px !important;
+	top: 0;
+	font-size: 25px !important;
 }
 
 /*Code New*/
 
 .mean-bar {
-  clear: both;
-  overflow: hidden;
+	clear: both;
+	overflow: hidden;
 }
 
 .menu-text {
-  left: 0;
-  position: absolute;
-  top: 8px;
-  z-index: 999;
+	left: 0;
+	position: absolute;
+	top: 8px;
+	z-index: 999;
 }
 
-.menu-text a{
-  color: #fff !important;
-  display: inline-block;
-  font-size: 18px;
-  line-height: 50px;
-  padding-left: 20px;
-  text-transform: uppercase;
+.menu-text a {
+	color: #fff !important;
+	display: inline-block;
+	font-size: 18px;
+	line-height: 50px;
+	padding-left: 20px;
+	text-transform: uppercase;
 }
