@@ -1,33 +1,65 @@
 ﻿<?php
-   include("database/conn.php");
-   session_start();
-   
-   if(isset($_POST["login_submit"])) {    
-	  $myLoginUserName = $_POST['login_userName']; 
-      $myLoginPassword = $_POST['login_password']; 
+include ("database/conn.php");
+session_start();
 
-	  $query = "SELECT userId FROM users WHERE username = '$myLoginUserName' and password = '$myLoginPassword'";
+if(isset(($_SESSION['login_user']))){
+	header("location: index.php");
+} 
+
+$error_form = "";
+$error_form_signup = "";
+
+if (isset($_POST["login_submit"]))
+{
+    $myLoginUserName = $_POST['login_userName'];
+    $myLoginPassword = $_POST['login_password'];
+
+    $query = "SELECT userId,userName,password FROM users WHERE userName = '$myLoginUserName' and password = '$myLoginPassword'";
+
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_array($result);
+	// var_dump($row);
+	// exit;
+
 	
-	//   $result = mysqli_query($conn,$query);
-    //   $row= mysqli_fetch_array($result);
-    //   $users= $row['userName'];
-		
-    //   if($myLoginUserName == $users) {
-    //      header("location: index.php");
-    //   }else {
-    //      $error = "Your Login Name or Password is invalid";
-    //   };
 
-   }elseif (isset($_POST["signup_submit"])) {
-	$myFirstName = $_POST['fname'];
-	$myLastName = $_POST['lname'];
-	$myUserName = $_POST['uname'];
-	$myEmail = $_POST['email']; 
-	$myPassword = $_POST['password']; 
+    if (!empty($row) && $myLoginUserName == $row['userName'] && $myLoginPassword == $row['password'])
+    {
+		$_SESSION['login_user'] = $row['userName'];
+        header("location: index.php");
+    }
+    else
+    {
+        $error_form = "Please enter your correct User Name and Password";
+    }
 
-	echo $myEmail,$myPassword;
+}else if (isset($_POST["signup_submit"]))
+{
+    $userFirstName = $_POST['fname'];
+    $userLastName = $_POST['lname'];
+    $userUserName = $_POST['uname'];
+    $userEmail = $_POST['email'];
+    $userPassword = $_POST['password'];
 
-   }
+    $query = "INSERT INTO Users (firstName, lastName, userName,Email,password) VALUES('$userFirstName', '$userLastName', '$userUserName','$userEmail','$userPassword')";
+    $result = mysqli_query($conn, $query);
+    
+
+
+	if ($result)
+    {
+		$query = "SELECT userId,userName,password FROM users WHERE userName = '$userUserName' and password = '$userPassword'";
+    	$result = mysqli_query($conn, $query);
+    	$row = mysqli_fetch_array($result);
+		$_SESSION['login_user'] = $row['userName'];
+        header("location: index.php");
+    }
+    else
+    {
+	$error_form_signup = "User already exists";
+    }
+
+}
 ?>
 
 
@@ -70,7 +102,7 @@
 	<!-- Main wrapper -->
 	<div class="wrapper" id="wrapper">
 		<!-- Header -->
-		<?php include 'includes/header.php' ?>
+		<?php //include_once 'includes/header.php' ?>
 		<!-- //Header -->
 		<!-- Start Search Popup -->
 		<?php include 'components/search.php' ?>
@@ -100,7 +132,7 @@
 					<div class="col-lg-4 col-12">
 						<div class="my__account__wrapper">
 							<h3 class="account__title">Login</h3>
-							<form action="account.php" method="post">
+							<form action="" method="post">
 								<div class="account__form">
 									<div class="input__box">
 										<label>Username<span>*</span></label>
@@ -110,15 +142,13 @@
 										<label>Password<span>*</span></label>
 										<input required name="login_password" type="password">
 									</div>
+									<!-- <label class="label-for-checkbox">
+											<input id="rememberme" class="input-checkbox mr-2" name="remember" value="forever" type="checkbox"><span>Remember me</span>
+									</label> -->
 									<div class="form__btn">
-									<input required type="submit" name="login_submit">
-										<label class="label-for-checkbox">
-											<input id="rememberme" class="input-checkbox" name="rememberme"
-												value="forever" type="checkbox">
-											<span>Remember me</span>
-										</label>
+									<input required type="submit" value="Login" name="login_submit">
+									<span class="text-danger font-weight-bold"><?php echo $error_form ?></span>
 									</div>
-									<a class="forget_pass" href="#">Lost your password?</a>
 								</div>
 							</form>
 						</div>
@@ -126,7 +156,7 @@
 					<div class="col-lg-4 col-12">
 						<div class="my__account__wrapper">
 							<h3 class="account__title">Register</h3>
-							<form action="account.php" method="post">
+							<form action="" method="post">
 								<div class="account__form">
 									<div class="input__box">
 										<label>First Name<span>*</span></label>
@@ -149,7 +179,8 @@
 										<input required name="password" type="password">
 									</div>
 									<div class="form__btn">
-										<input required type="submit" name="signup_submit">
+										<input required type="submit" value="Register" name="signup_submit">
+										<span class="text-danger font-weight-bold"><?php echo $error_form_signup ?></span>
 									</div>
 								</div>
 							</form>
@@ -160,7 +191,7 @@
 		</section>
 		<!-- End My Account Area -->
 		<!-- Footer Area -->
-		<?php include 'includes/footer.php' ?>
+		<?php include_once 'includes/footer.php' ?>
 		<!-- //Footer Area -->
 
 	</div>

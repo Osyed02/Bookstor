@@ -2673,6 +2673,19 @@ Header Styles
   width: 30px;
 }
 
+.header__area .header__sidebar__right>li.logout__bar__icon {
+  position: relative;
+}
+
+.header__area .header__sidebar__right>li.logout__bar__icon>a {
+  background: transparent url("images/icons/logout.png") no-repeat scroll left center;
+  cursor: pointer;
+  font-size: 0;
+  height: 35px;
+  position: relative;
+  width: 30px;
+}
+
 .header__area .header__sidebar__right>li.click__menu {
   padding-right: 26px;
 }

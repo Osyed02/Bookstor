@@ -36,7 +36,7 @@
 	<div class="wrapper" id="wrapper">
 		
 		<!-- Header -->
-		<?php include 'includes/header.php' ?>
+		<?php include_once 'includes/header.php' ?>
 		<!-- //Header -->
 		<!-- Start Search Popup -->
 		<?php include 'components/search.php' ?>
@@ -335,7 +335,7 @@
         </section>
         <!-- End Checkout Area -->
 		<!-- Footer Area -->
-		<?php include 'includes/footer.php' ?>
+		<?php include_once 'includes/footer.php' ?>
 		<!-- //Footer Area -->
 
 	</div>

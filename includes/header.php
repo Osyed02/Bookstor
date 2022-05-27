@@ -1,3 +1,8 @@
+<?php
+session_start();
+if(!isset(($_SESSION['login_user']))){
+	header("location: account.php");
+}  ?>
 <header id="wn__header" class="oth-page header__area header__absolute sticky__header">
 			<div class="container-fluid">
 				<div class="row">
@@ -33,7 +38,11 @@
 							<li class="shop_search mr-4"><a class="search__active" href="#"></a></li>
 							<li class="shopcart"><a href="cart.php"><span class="product_qun">3</span></a>
 							</li>
-							<li class="setting__bar__icon"><a href="account.php"></a></li>
+							<?php if(isset($_SESSION['login_user'])){ ?>
+								<li class="logout__bar__icon"><a href="db_func/logout.php"></a></li>
+							<?php }else{ ?>
+								<li class="setting__bar__icon"><a href="account.php"></a></li>
+							<?php } ?>
 						</ul>
 					</div>
 				</div>

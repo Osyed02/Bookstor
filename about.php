@@ -145,7 +145,7 @@
 		<?php include 'components/team_sec.php' ?>
 		<!-- End Team Area -->
 		<!-- Footer Area -->
-		<?php include 'includes/footer.php' ?>
+		<?php include_once 'includes/footer.php' ?>
 
 		<!-- //Footer Area -->
 
