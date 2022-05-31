@@ -1,8 +1,3 @@
-<?php
-session_start();
-if(!isset(($_SESSION['login_user']))){
-	header("location: account.php");
-}  ?>
 <header id="wn__header" class="oth-page header__area header__absolute sticky__header">
 			<div class="container-fluid">
 				<div class="row">
